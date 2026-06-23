@@ -1,6 +1,3 @@
-# HR-Analytics-Dashboard
-Power BI HR Analytics Dashboard | Multi-dimensional employee analytics, KPI tracking, and workforce insights. Real company data (anonymized) from SPR Consultech internship.
-
 # 📊 Sample HR Analytics Dashboard
 
 A comprehensive **HR Analytics Dashboard** developed during my internship at SPR Consultech, designed to analyze employee metrics, identify key performance indicators (KPIs), and provide actionable insights for HR business decisions.

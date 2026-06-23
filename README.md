@@ -214,7 +214,6 @@ This approach ensures compliance with data protection standards while demonstrat
 | **Excel** | Data cleaning, preprocessing, pivot tables |
 | **DAX (Data Analysis Expressions)** | Complex calculations (Attrition, CPE, metrics) |
 | **Power Query** | Data transformation & loading |
-| **SQL-like Relationships** | Table connections, data integrity |
 
 ---
 
@@ -242,48 +241,4 @@ This approach ensures compliance with data protection standards while demonstrat
 - Selecting appropriate visualizations
 - Creating actionable insights
 - Executive summary design
-
----
-
-## 🚀 Future Enhancements
-
-- [ ] Add predictive analytics for attrition forecasting
-- [ ] Implement real-time data refresh connections
-- [ ] Add advanced DAX calculations (YoY growth, forecasting)
-- [ ] Develop mobile-optimized dashboard version
-- [ ] Add drill-down to employee-level detail
-- [ ] Create salary benchmarking analysis
-- [ ] Implement performance trend analysis
-
----
-
-## 📞 Questions or Feedback?
-
-Feel free to reach out:
-
-- **LinkedIn:** [Your LinkedIn URL]
-- **Email:** [Your Email Address]
-
-I'm open to discussing the analysis, methodology, or any HR analytics questions!
-
----
-
-## 🎓 About Me
-
-I'm a **Fresh Graduate** (BBA 2026 from SRM Institute of Science and Technology) passionate about **Data Analytics and Business Intelligence**. 
-
-I'm actively seeking roles in:
-- Data Analysis
-- Business Analysis
-- Operations Analytics
-- MIS Analysis
-
-This project represents hands-on experience with real company data and professional BI tools during my internship.
-
----
-
-*Last Updated: June 2026*
-
-**Status:** ✅ Production-Ready Dashboard | Interview-Portfolio Quality
-
 

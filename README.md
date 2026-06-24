@@ -59,7 +59,7 @@ DimCalendar ──────────┘
 
 ---
 
-## 📈 Key Metrics & KPIs
+## Key Metrics & KPIs
 
 | KPI | Value | Insight |
 |-----|-------|---------|

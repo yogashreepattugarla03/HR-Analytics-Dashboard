@@ -159,18 +159,18 @@ DimCalendar ──────────┘
 
 ```
 HR-Analytics-Dashboard/
-├── 📊 dashboard/
-│   ├── sample_data_analysis_spr.pbix       (Power BI file)
-│   └── dashboard_screenshot.png             (Visual preview)
-│
-├── 📁 data/
-│   ├── SPR-HR_data.xlsx                    (Raw data - anonymized)
-│   └── Data_Dictionary.md                   (Column descriptions)
-│
-├── 📄 README.md                             (This file)
-├── 📄 Methodology.md                        (Analysis approach)
-└── .gitignore                               (Confidentiality protection)
-```
+├── dashboard/
+│   └── sample data analysis (spr).pbix 
+├── data/
+│   ├── Data_Dictionary.md 
+│   └── SPR-HR data.xlsx 
+├── documentation/
+│   └── methodology.md 
+├── visuals/
+│   ├── dashboard_screenshot.png 
+│   └── data modelling ss.png 
+├── .gitignore 
+└── README.md (UPDATED) 
 
 ---
 

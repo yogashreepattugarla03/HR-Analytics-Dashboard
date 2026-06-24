@@ -116,41 +116,6 @@ Total Leaves = SUM(Leave[CapturedUnits])
 **Insight:** Aggregate leave consumption across workforce
 
 ---
-
-## **Data Quality Notes**
-
-✅ **Data Type:** Clean and properly formatted  
-✅ **Missing Values:** Minimal; (Blank) category handled appropriately  
-✅ **Relationships:** Properly enforced via EmployeeID  
-✅ **Date Range:** [Check your actual date range from data]  
-✅ **Geographic Coverage:** 5 countries represented  
-
----
-
-## **Filters & Slicers Available**
-
-| Filter | Values | Used For |
-|--------|--------|----------|
-| **CurrentStatus** | Active, Inactive, New, Re-Instate New, Terminated | Employee segmentation |
-| **Department** | Operations, Workshop, Engineering, HR, Finance, etc. | Departmental analysis |
-| **Country** | Brazil, Chile, Mexico, Peru, South Africa | Geographic analysis |
-| **Age_Buckets** | Young, Mid-Career, Senior | Demographic analysis |
-| **Month/Year** | Jan-2025 through [latest month] | Trend analysis |
-
----
-
-## **Usage Examples**
-
-### **"How many active employees do we have by department?"**
-→ Use Employee Master (CurrentStatus = Active) + Department dimension
-
-### **"What's the average salary by country?"**
-→ Use Salary table grouped by Country + Average(Annual_Salary)
-
-### **"Which department has highest leave usage?"**
-→ Use Leave table + Sum(CapturedUnits) grouped by Department
-
-### **"What's the attrition trend over time?"**
-→ Use Employee Master filtered by Terminated + DimCalendar for time dimension
-
+## Data Connections
+All tables connect via **EmployeeID**
 ---

@@ -118,4 +118,5 @@ Total Leaves = SUM(Leave[CapturedUnits])
 ---
 ## Data Connections
 All tables connect via **EmployeeID**
+
 ---

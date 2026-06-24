@@ -157,21 +157,19 @@ DimCalendar ──────────┘
 
 ## Repository Structure
 
-```
 HR-Analytics-Dashboard/
 ├── dashboard/
 │   └── sample data analysis (spr).pbix 
 ├── data/
-│   ├── Data_Dictionary.md 
+│   ├── Data_Dictionary.md
 │   └── SPR-HR data.xlsx 
 ├── documentation/
-│   └── methodology.md 
+│   └── methodology.md
 ├── visuals/
 │   ├── dashboard_screenshot.png 
 │   └── data modelling ss.png 
 ├── .gitignore 
-└── README.md (UPDATED) 
-
+└── README.md
 ---
 
 ## Files In This Project

@@ -1,11 +1,11 @@
-# 📊 Analysis Methodology - SPR HR Analytics Dashboard
+# Analysis Methodology - SPR HR Analytics Dashboard
 
 ## Overview
 This document outlines the approach, methodology, and analytical framework used to develop the SPR HR Analytics Dashboard.
 
 ---
 
-## 🎯 Analysis Objectives
+## Analysis Objectives
 
 1. **Transform Raw Data** → Convert employee data into actionable insights
 2. **Identify Key Metrics** → Define and calculate critical HR KPIs
@@ -14,7 +14,7 @@ This document outlines the approach, methodology, and analytical framework used 
 
 ---
 
-## 🔄 Development Process
+## Development Process
 
 ### **step 1: Data Understanding & Preparation**
 

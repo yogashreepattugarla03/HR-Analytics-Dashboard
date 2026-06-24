@@ -75,38 +75,71 @@ DimCalendar ──────────┘
 
 ## Dashboard Features
 
-### **Page 1: Executive Summary**
-- Active employee count (with gender breakdown)
-- Attrition rate and trend analysis
-- CPE metric for workforce efficiency
-- Quick status filters
+### **Page 1: Employee Analysis**
+- Count of employees by ID
+- Average age of workforce
+- Gender diversity ratio
+- Department-wise headcount
+- Average experience in years by age bucket
+- Employee status breakdown
+- Employee distribution by job title
+- Employee distribution by job grade
 
-### **Page 2: Employee Analysis**
-- Employee count by department
-- Demographic distribution (age groups, roles)
-- Employee distribution by country
-- Active vs. inactive employee comparison
+### **Page 2: Leave Analysis**
+- Leave distribution by type
+- Employees with highest leave frequency rate
+- Average leave units taken by employee
+- Total number of employees
+- Leave cancellation rate
 
-### **Page 3: Leave Management**
-- Total leaves taken by department
-- Average leave usage patterns
-- Leave balance tracking
-- Department-wise leave distribution
+### **Page 3: Salary Analysis**
+- Department-wise sum of period salary
+- Annual salary growth rate
+- Total number of employees
+- Total salary cost
+- Average period salary
+- Female and male employee title cards
+- Top 10 highest paid employees
 
-### **Page 4: Salary Analysis**
-- Sum of salary per employee by department
-- Compensation trends
-- Cost analysis by business unit
+### **Page 4: Cross Analysis (Rough)**
+**Filters:**
+- Current status filter
+- Country filter
+- Job grade type filter
+- Age group filter
+- Experience bucket filter
 
-### **Page 5: Attrition Analysis**
-- Attrition rate trends over time (month-year view)
-- Exit category distribution
-- Department-wise attrition comparison
+**Metrics:**
+- Attrition rate
+- CPE (Cost Per Employee)
+- Active employees
+- Male active employees
+- Female active employees
 
-### **Page 6: Cross-Sheet Analysis**
-- Comprehensive data relationships
-- Drill-down capabilities
-- Multi-dimensional analysis
+**Analysis:**
+- Number of departments by exit category
+- Top 5 countries by headcount
+- Total leave taken by job title
+- Total leaves by top 5 employee IDs
+- Highest attrition rate by month year
+- Total number of exits by country, department, and exit category
+
+### **Page 5: Final Cross Sheet**
+**Filters & Metrics:**
+- Current status filter card
+- Attrition rate
+- Active employees
+- Female and male employee count
+- CPE metric
+
+**Analysis:**
+- Average leave taken by department (top 5)
+- Attrition rate by month year (top 10)
+- Country-wise employee status table: active, inactive, blank/re-installed (top 5)
+- Sum of salary per employee by department (top 5)
+- Total leaves by department (top 10)
+- Count of department by exit category (top 5)
+- Employee count by department (top 10)
 
 ---
 

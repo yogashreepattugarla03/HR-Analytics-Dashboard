@@ -86,9 +86,6 @@ YoY Growth = [Current Year] / [Previous Year]
 
 **Page 5: Final Sheet** - Status filter + Metrics (attrition, active, gender split, CPE) + Analysis (top 5 dept by leave, top 10 attrition trends, top 5 countries, top 5 dept salary, top 10 dept leaves, exit breakdown, employee count)
 
-### Step 6: Add Filters
-Added interactive filters: Status, Country, Job Grade, Age Group, Experience Bucket (varies by page)
-
 **Visualization Selection Rationale:**
 
 | Chart Type | When Used | Why |

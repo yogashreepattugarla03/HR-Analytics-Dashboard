@@ -143,7 +143,7 @@ HR-Analytics-Dashboard/
 
 ## Files In This Project
 
-- **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/dashboard/sample%20data%20analysis%20(spr).pbix** - The Power BI dashboard file (open in Power BI)
+- **<a href = "https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/dashboard/sample%20data%20analysis%20(spr).pbix">PowerBI dashboard</a>** - The Power BI dashboard file (open in Power BI)
 - **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/data/SPR-HR%20data.xlsx** - The raw data (Excel file)
 - **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/data/Data_Dictionary.md** - Explains what each column means
 - **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/documentation/methodology.md** - How I built this project
@@ -153,7 +153,7 @@ HR-Analytics-Dashboard/
 
 ## How To Use This Project
 
-1. **Want to see the dashboard?** → Open the `.pbix` file in Power BI
+1. **<Want to see the dashboard?** → Open the `.pbix` file in Power BI
 2. **Want to see the data?** → Open the `.xlsx` file in Excel
 3. **Want to understand columns?** → Read `Data_Dictionary.md`
 4. **Want to know how I built it?** → Read `Methodology.md`

@@ -147,7 +147,7 @@ HR-Analytics-Dashboard/
 - **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/data/SPR-HR%20data.xlsx** - The raw data (Excel file)
 - **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/data/Data_Dictionary.md** - Explains what each column means
 - **Methodology.md** - How I built this project
-- **Screenshots** - Pictures of the dashboard
+- **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/tree/main/visuals** - Pictures of the dashboard
 
 ---
 

@@ -151,15 +151,6 @@ HR-Analytics-Dashboard/
 
 ---
 
-## How To Use This Project
-
-1. **<Want to see the dashboard?** → Open the `.pbix` file in Power BI
-2. **Want to see the data?** → Open the `.xlsx` file in Excel
-3. **Want to understand columns?** → Read `Data_Dictionary.md`
-4. **Want to know how I built it?** → Read `Methodology.md`
-
----
-
 ## Insights & Findings
 
 ### **1. Workforce Stability**

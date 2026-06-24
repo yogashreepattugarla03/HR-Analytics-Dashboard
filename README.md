@@ -10,7 +10,7 @@ A comprehensive **HR Analytics Dashboard** developed during my internship at SPR
 **Organization:** SPR Consultech  
 **Duration:** 1 month [JUL'25-AUG'25]  
 **Tools:** Power BI, Excel, Data Modeling  
-**Objective:** Transform raw HR data into interactive dashboards for stakeholder insights
+**Objective:** Transform raw HR data into interactive dashboards 
 
 ---
 

@@ -156,7 +156,7 @@ DimCalendar ──────────┘
 ---
 
 ## Repository Structure
-
+---
 HR-Analytics-Dashboard/
 ├── dashboard/
 │   └── sample data analysis (spr).pbix 

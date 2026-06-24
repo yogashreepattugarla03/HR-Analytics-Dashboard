@@ -154,15 +154,3 @@ Total Leaves = SUM(Leave[CapturedUnits])
 → Use Employee Master filtered by Terminated + DimCalendar for time dimension
 
 ---
-
-## **Data Anonymization Note**
-
-This dataset uses anonymized HR information from SPR Consultech:
-- Employee identities are represented by ID numbers only
-- No personal names included
-- Actual salary figures aggregated or anonymized
-- All PII (personally identifiable information) removed
-- Data structure and relationships preserved for analysis
-
----
-

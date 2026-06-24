@@ -1,4 +1,4 @@
-# 📋 Data Dictionary - SPR HR Analytics Dashboard
+# Data Dictionary - SPR HR Analytics Dashboard
 
 ## Overview
 This document describes all columns and tables in the SPR HR Analytics dataset used for the Power BI dashboard.

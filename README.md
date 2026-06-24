@@ -1,10 +1,10 @@
-# 📊 Sample HR Analytics Dashboard
+# Sample HR Analytics Dashboard
 
 A comprehensive **HR Analytics Dashboard** developed during my internship at SPR Consultech, designed to analyze employee metrics, identify key performance indicators (KPIs), and provide actionable insights for HR business decisions.
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 **Role:** Data Analyst Intern  
 **Organization:** SPR Consultech  
@@ -14,7 +14,7 @@ A comprehensive **HR Analytics Dashboard** developed during my internship at SPR
 
 ---
 
-## 📊 What This Dashboard Does
+## What This Dashboard Does
 
 ✅ **Employee Analytics** - Headcount, demographics, active/inactive status tracking  
 ✅ **Leave Management** - Leave balance, usage patterns, departmental trends  
@@ -25,7 +25,7 @@ A comprehensive **HR Analytics Dashboard** developed during my internship at SPR
 
 ---
 
-## 🏗️ Data Architecture
+## Data Architecture
 
 ### **Tables & Relationships:**
 
@@ -73,7 +73,7 @@ DimCalendar ──────────┘
 
 ---
 
-## 🎨 Dashboard Features
+## Dashboard Features
 
 ### **Page 1: Executive Summary**
 - Active employee count (with gender breakdown)
@@ -110,7 +110,7 @@ DimCalendar ──────────┘
 
 ---
 
-## 💡 Key Technical Skills Demonstrated
+## Key Technical Skills Demonstrated
 
 ✅ **Data Modeling** - Star schema design with proper table relationships  
 ✅ **DAX Calculations** - Complex measures (Attrition Rate, CPE, etc.)  
@@ -122,7 +122,7 @@ DimCalendar ──────────┘
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 HR-Analytics-Dashboard/
@@ -160,7 +160,7 @@ HR-Analytics-Dashboard/
 
 ---
 
-## 📊 Insights & Findings
+## Insights & Findings
 
 ### **1. Workforce Stability**
 - Attrition rate of 0.3% indicates excellent employee retention
@@ -189,7 +189,7 @@ HR-Analytics-Dashboard/
 
 ---
 
-## 🛠️ Tools & Technologies Used
+## Tools & Technologies Used
 
 | Tool | Purpose |
 |------|---------|
@@ -200,7 +200,7 @@ HR-Analytics-Dashboard/
 
 ---
 
-## 📚 What I Learned
+## What I Learned
 
 ✨ **Data Modeling Best Practices**
 - Building star schema for analytics

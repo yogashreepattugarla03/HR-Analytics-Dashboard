@@ -144,10 +144,10 @@ HR-Analytics-Dashboard/
 ## Files In This Project
 
 - **<a href = "https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/dashboard/sample%20data%20analysis%20(spr).pbix">PowerBI dashboard</a>** - The Power BI dashboard file (open in Power BI)
-- **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/data/SPR-HR%20data.xlsx** - The raw data (Excel file)
-- **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/data/Data_Dictionary.md** - Explains what each column means
-- **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/documentation/methodology.md** - How I built this project
-- **https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/tree/main/visuals** - Pictures of the dashboard
+- **<a href = "https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/data/SPR-HR%20data.xlsx">spr-raw dataset</a>** - The raw data (Excel file)
+- **<a href = "https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/data/Data_Dictionary.md">Data Dictionary</a>** - Explains what each column means
+- **<a href = "https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/blob/main/documentation/methodology.md">Methodology</a>** - How I built this project
+- **<a href = "https://github.com/yogashreepattugarla03/HR-Analytics-Dashboard/tree/main/visuals">Dashboard Screenshots</a>** - Pictures of the dashboard
 
 ---
 

@@ -1,53 +1,11 @@
 # Analysis Methodology - SPR HR Analytics Dashboard
+## How I Built This Dashboard
 
-## Overview
-This document outlines the approach, methodology, and analytical framework used to develop the SPR HR Analytics Dashboard.
+### Step 1: Understand The Data
+Explored the 4 tables (Employee, Salary, Leave, Calendar) and checked data quality and relationships.
 
----
-
-## Analysis Objectives
-
-1. **Transform Raw Data** → Convert employee data into actionable insights
-2. **Identify Key Metrics** → Define and calculate critical HR KPIs
-3. **Enable Data-Driven Decisions** → Support HR strategy with analytics
-4. **Provide Self-Service Analytics** → Create interactive dashboards
-
---
-
-## Development Process
-
-### **step 1: Data Understanding & Preparation**
-
-**Steps Taken:**
-- Analyzed source data structure in Excel
-- Identified 4 main tables: Employee Master, Salary, Leave, Calendar
-- Validated data integrity and relationships
-- Documented data quality issues (if any) and resolutions
-
-**Data Exploration:**
-- Employee count: 1,946 active employees
-- Countries: 5 (Brazil, Chile, Mexico, Peru, South Africa)
-- Departments: 10+ distinct business units
-- Time period: [Actual data period]
-- Data granularity: Employee-level transactions
-
-**Findings:**
-- Data quality: High
-- Missing values: Minimal handling required
-- Outliers: None identified
-- Duplicates: None found
-
----
-
-### **step 2: Data Modeling**
-
-**Architecture Decision: Star Schema**
-
-Why Star Schema?
-✅ Optimized for analytics queries  
-✅ Maintains data integrity  
-✅ Enables efficient joins  
-✅ Supports multidimensional analysis  
+### Step 2: Design Data Model
+Connected tables using Employee ID. Used Star Schema for efficiency and flexibility.
 
 **Table Design:**
 
@@ -75,28 +33,8 @@ DIMENSION TABLES (Context):
 
 ---
 
-### **step 3: KPI Identification**
-
-**HR Metrics Selected & Rationale:**
-
-| KPI | Formula | Business Value |
-|-----|---------|-----------------|
-| **Active Employees** | COUNT(EmployeeID) WHERE Status='Active' | Workforce size tracking |
-| **Attrition Rate** | Terminated / Total * 100 | Retention health |
-| **CPE (Cost Per Employee)** | Total Salary / Headcount | Workforce cost efficiency |
-| **Gender Distribution** | Count by Gender | Diversity metrics |
-| **Leave Utilization** | Sum(Leave Taken) by Department | Work-life balance tracking |
-| **Salary Analysis** | Sum/Avg Salary by Department | Compensation equity |
-| **Department Distribution** | Count by Department | Org structure clarity |
-| **Geographic Spread** | Count by Country | Multi-location analysis |
-
-**Why These Metrics?**
-- Directly support HR business questions
-- Actionable for HR decision-makers
-- Benchmarkable against industry standards
-- Align with organizational strategy
-
----
+### Step 3: Identify Key Metrics
+Selected metrics that matter: Employee count, Attrition rate, CPE, Salary growth, Leave patterns, Exit categories, Department and Country distribution.
 
 ### **step 4: DAX Calculations**
 
@@ -136,8 +74,20 @@ YoY Growth = [Current Year] / [Previous Year]
 - Use time intelligence functions for trends
 
 ---
+### Step 5: Design 5 Dashboard Pages
 
-### **step 5: Visualization Design**
+**Page 1: Employee Analysis** - Count, age, gender, department, experience, status, job title, job grade
+
+**Page 2: Leave Analysis** - Leave type, frequency rate, average units, total employees, cancellation rate
+
+**Page 3: Salary Analysis** - Department salary sum, salary growth rate, total cost, average salary, gender split, top 10 paid
+
+**Page 4: Cross Analysis** - Filters (status, country, grade, age, experience) + Metrics (attrition, CPE, active employees) + Analysis (exits by dept, top countries, leave by title, attrition trends)
+
+**Page 5: Final Sheet** - Status filter + Metrics (attrition, active, gender split, CPE) + Analysis (top 5 dept by leave, top 10 attrition trends, top 5 countries, top 5 dept salary, top 10 dept leaves, exit breakdown, employee count)
+
+### Step 6: Add Filters
+Added interactive filters: Status, Country, Job Grade, Age Group, Experience Bucket (varies by page)
 
 **Visualization Selection Rationale:**
 
@@ -151,70 +101,22 @@ YoY Growth = [Current Year] / [Previous Year]
 | **Matrix/Heatmap** | Multi-dimensional | Complex relationships |
 
 ---
+### Step 6: Add Filters
+Added interactive filters: Status, Country, Job Grade, Age Group, Experience Bucket (varies by page)
 
-### **step 6: Interactivity & Filtering**
+## Key Decisions
+- **Separate pages** for different topics (Employee, Leave, Salary) so each user sees what they need
+- **Top N analysis** (top 5/10) to avoid overwhelming data
+- **Multiple filters** for detailed analysis beyond just department
+- **Include salary growth** to show trends, not just absolute values
+- **Track leave cancellation** to understand actual usage
 
-**Filters Implemented:**
-
-1. **CurrentStatus Filter**
-   - Values: Active, Inactive, New, Re-Instate New, Terminated
-   - Impact: Affects all employee counts
-   - Use Case: Segment analysis
-
-2. **Department Filter**
-   - Dynamic based on data
-   - Impact: Narrows analysis to specific units
-   - Use Case: Department manager drill-down
-
-3. **Country Filter**
-   - Values: Brazil, Chile, Mexico, Peru, South Africa
-   - Impact: Geographic segmentation
-   - Use Case: Multi-country analysis
-
-4. **Time Filter (Month/Year)**
-   - Based on DimCalendar
-   - Impact: Trend analysis over time
-   - Use Case: Historical trend tracking
+## What I Learned From Data
+- Very low attrition (0.3%) = good retention
+- Multi-country operation (5 countries)
+- Leave usage varies by job title
+- Stable cost per employee
+- Gender diversity data available
 
 ---
 
-## 📈 Analysis Insights Discovered
-
-### **Workforce Stability**
-- **Finding:** Attrition rate of 0.3% is exceptionally low
-- **Implication:** Strong employee retention, low turnover costs
-- **Recommendation:** Identify and share retention best practices
-
-### **Geographic Distribution**
-- **Finding:** Peru has largest employee concentration (796 employees)
-- **Implication:** Significant Latin American operations
-- **Recommendation:** Monitor location-specific HR practices
-
-### **Leave Patterns**
-- **Finding:** RAU department shows highest average leave (22 days)
-- **Implication:** Potential workload or burnout indicator
-- **Recommendation:** Review workload distribution in RAU
-
-### **Salary Efficiency**
-- **Finding:** CPE averaged 10,940 across workforce
-- **Implication:** Stable, predictable workforce costs
-- **Recommendation:** Use as baseline for budget forecasting
-
-### **Department Insights**
-- **Finding:** "Other" category dominates (1,169 employees)
-- **Implication:** Need for better department classification
-- **Recommendation:** Standardize department naming convention
-
----
-
-## Tools & Technologies used
-
-| Tool | Purpose | Version/Skill Level |
-|------|---------|-------------------|
-| **Power BI Desktop** | Dashboard development | Intermediate-Advanced |
-| **DAX** | Complex calculations | Intermediate |
-| **Power Query** | Data transformation | Intermediate |
-| **Excel** | Data preparation | Intermediate |
-| **SQL-like Relationships** | Data modeling | Intermediate |
-
----

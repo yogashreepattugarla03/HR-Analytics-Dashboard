@@ -1,370 +1,159 @@
-# 📊 Analysis Methodology - SPR HR Analytics Dashboard
+# Project Methodology
 
-## Overview
-This document outlines the approach, methodology, and analytical framework used to develop the SPR HR Analytics Dashboard.
-
----
-
-## 🎯 Analysis Objectives
-
-1. **Transform Raw Data** → Convert employee data into actionable insights
-2. **Identify Key Metrics** → Define and calculate critical HR KPIs
-3. **Enable Data-Driven Decisions** → Support HR strategy with analytics
-4. **Provide Self-Service Analytics** → Create interactive dashboards for stakeholders
+This explains how I built the dashboard.
 
 ---
 
-## 🔄 Development Process
+## Step 1: Understand The Data
 
-### **Phase 1: Data Understanding & Preparation**
-
-**Steps Taken:**
-- Analyzed source data structure in Excel
-- Identified 4 main tables: Employee Master, Salary, Leave, Calendar
-- Validated data integrity and relationships
-- Documented data quality issues (if any) and resolutions
-
-**Data Exploration:**
-- Employee count: 1,946 active employees
-- Countries: 5 (Brazil, Chile, Mexico, Peru, South Africa)
-- Departments: 10+ distinct business units
-- Time period: [Actual data period]
-- Data granularity: Employee-level transactions
-
-**Findings:**
-- Data quality: High
-- Missing values: Minimal handling required
-- Outliers: None identified
-- Duplicates: None found
+I looked at the raw Excel data and identified:
+- 4 main tables: Employee, Salary, Leave, Calendar
+- Checked for missing or duplicate data
+- Made sure all employee IDs match across tables
+- Confirmed data quality and consistency
 
 ---
 
-### **Phase 2: Data Modeling**
+## Step 2: Design The Data Model
 
-**Architecture Decision: Star Schema**
+Connected the 4 tables using Employee ID as the key and created a "Star Schema" structure.
 
-Why Star Schema?
-✅ Optimized for analytics queries  
-✅ Maintains data integrity  
-✅ Enables efficient joins  
-✅ Supports multidimensional analysis  
-
-**Table Design:**
-
+**The structure:**
 ```
-FACT TABLES (Events/Transactions):
-├─ Leave (transactions)
-└─ Salary (employee records)
-
-DIMENSION TABLES (Context):
-├─ Employee Master (who)
-├─ DimCalendar (when)
-└─ Department/Country (where)
+Employee Master (who)
+    ↓
+Salary (how much they earn)
+Leave (time off)
+Calendar (when)
 ```
 
-**Relationships Established:**
-- EmployeeID (Primary Key) → Links all tables
-- One-to-Many: Employee Master → Salary, Leave
-- One-to-Many: DimCalendar → Time-based analysis
-
-**Data Types Optimization:**
-- Integers for IDs → Efficient joins
-- Currency for salary → Proper aggregation
-- Text for categorical → Filtering clarity
-- Date for temporal → Time analysis
+This design is:
+- Fast - easier for Power BI to process
+- Simple - easier to understand
+- Flexible - easy to add more data later
 
 ---
 
-### **Phase 3: KPI Identification**
+## Step 3: Identify Important Metrics (KPIs)
 
-**HR Metrics Selected & Rationale:**
+Decided to measure:
 
-| KPI | Formula | Business Value |
-|-----|---------|-----------------|
-| **Active Employees** | COUNT(EmployeeID) WHERE Status='Active' | Workforce size tracking |
-| **Attrition Rate** | Terminated / Total * 100 | Retention health |
-| **CPE (Cost Per Employee)** | Total Salary / Headcount | Workforce cost efficiency |
-| **Gender Distribution** | Count by Gender | Diversity metrics |
-| **Leave Utilization** | Sum(Leave Taken) by Department | Work-life balance tracking |
-| **Salary Analysis** | Sum/Avg Salary by Department | Compensation equity |
-| **Department Distribution** | Count by Department | Org structure clarity |
-| **Geographic Spread** | Count by Country | Multi-location analysis |
-
-**Why These Metrics?**
-- Directly support HR business questions
-- Actionable for HR decision-makers
-- Benchmarkable against industry standards
-- Align with organizational strategy
+| Metric | Why It Matters |
+|--------|----------------|
+| **Active Employees** | Shows company size |
+| **Attrition Rate** | Shows if people are leaving |
+| **Cost Per Employee** | Shows cost efficiency |
+| **Leave by Department** | Shows workload across teams |
+| **Salary by Department** | Shows compensation data |
+| **Gender Distribution** | Shows diversity metrics |
+| **Geographic Distribution** | Shows where people work |
 
 ---
 
-### **Phase 4: DAX Calculations**
+## Step 4: Create Calculations (DAX Formulas)
 
-**Measures Created:**
+Wrote formulas to calculate metrics:
 
-```dax
-// Count-based measures
-Active Employees = CALCULATE(COUNTA(EmployeeMaster[EmployeeID]), 
-  EmployeeMaster[CurrentStatus]="Active")
+### Active Employees Formula
+Count all rows where Status = "Active"  
+Result: 1,946
 
-Male Employees = CALCULATE(COUNTA(EmployeeMaster[EmployeeID]), 
-  EmployeeMaster[Gender]="M")
+### Attrition Rate Formula
+(Count Terminated / Count Total) * 100  
+Result: 0.3%
 
-Terminated Count = CALCULATE(COUNTA(EmployeeMaster[EmployeeID]), 
-  EmployeeMaster[CurrentStatus]="Terminated")
+### Average Leave by Department Formula
+Sum of all leave / Count of departments
 
-// Rate calculations
-Attrition Rate = [Terminated Count] / COUNTA(EmployeeMaster[EmployeeID])
-
-// Aggregations
-Total CPE = SUM(Salary[CPE])
-
-Total Salary = SUM(Salary[Annual_Salary])
-
-Average Salary = AVERAGE(Salary[Annual_Salary])
-
-Total Leaves Taken = SUM(Leave[CapturedUnits])
-
-// Time intelligence (if applicable)
-YoY Growth = [Current Year] / [Previous Year]
-```
-
-**Calculation Approach:**
-- Use CALCULATE for conditional logic
-- Apply FILTER for segment-specific analysis
-- Leverage SUMX/AVERAGEX for row context
-- Use time intelligence functions for trends
+These formulas allow Power BI to calculate metrics automatically instead of doing it manually in Excel.
 
 ---
 
-### **Phase 5: Visualization Design**
+## Step 5: Design The Dashboard
 
-**Dashboard Architecture:**
+Created 6 different pages:
 
-#### **Page 1: Executive Summary**
-- **Cards:** Active Employees, Male/Female counts, Attrition Rate, CPE
-- **Purpose:** At-a-glance KPI overview
-- **Audience:** C-level, executives
-- **Update Frequency:** Real-time
+### Page 1: Executive Summary
+- Top-level numbers for quick overview
+- Shows active employees, attrition rate, CPE
 
-#### **Page 2: Employee Analysis**
-- **Bar Chart:** Employee count by department
-- **Pie Chart:** Distribution across departments
-- **Table:** Department details with headcount
-- **Purpose:** Organizational structure clarity
-- **Filters:** By Current Status
+### Page 2: Employee Analysis
+- Employee count by department and country
+- Age distribution analysis
 
-#### **Page 3: Leave Management**
-- **Bar Chart:** Average leave by department
-- **Bar Chart:** Total leaves by department
-- **Purpose:** Leave utilization analysis
-- **Insight:** Which departments use more leave?
+### Page 3: Leave Analysis
+- Leave usage patterns
+- Which departments take most leave
 
-#### **Page 4: Salary Analysis**
-- **Bar Chart:** Sum of salary by department
-- **Stacked Chart:** Compensation breakdown
-- **Purpose:** Compensation analysis
-- **Filters:** By country, department
+### Page 4: Salary Analysis
+- Salary breakdown by department
+- Cost analysis by business unit
 
-#### **Page 5: Attrition Analysis**
-- **Line Chart:** Attrition rate trend (Month-Year)
-- **Pie Chart:** Exit category distribution
-- **Purpose:** Workforce stability tracking
-- **Insight:** Attrition trends over time
+### Page 5: Attrition Trends
+- Trends over time
+- Exit category breakdown
 
-#### **Page 6: Cross-Sheet Analysis**
-- **Comprehensive tables:** Multi-table drill-down
-- **Purpose:** Detailed analysis capability
-- **Audience:** Analysts, HR teams
+### Page 6: Detailed Breakdown
+- All data together
+- For deeper analysis
 
-**Visualization Selection Rationale:**
-
-| Chart Type | When Used | Why |
-|-----------|-----------|-----|
-| **Cards** | Single KPI | Quick scanning |
-| **Bar Charts** | Category comparison | Easy ranking comparison |
-| **Pie Charts** | Part-to-whole | Segment proportions |
-| **Line Charts** | Trends over time | Pattern recognition |
-| **Tables** | Detailed data | Precision, drill-down |
-| **Matrix/Heatmap** | Multi-dimensional | Complex relationships |
+Different pages serve different purposes so each user can see what they need.
 
 ---
 
-### **Phase 6: Interactivity & Filtering**
+## Step 6: Add Filters
 
-**Filters Implemented:**
+Added interactive filters so users can focus on specific data:
 
-1. **CurrentStatus Filter**
-   - Values: Active, Inactive, New, Re-Instate New, Terminated
-   - Impact: Affects all employee counts
-   - Use Case: Segment analysis
-
-2. **Department Filter**
-   - Dynamic based on data
-   - Impact: Narrows analysis to specific units
-   - Use Case: Department manager drill-down
-
-3. **Country Filter**
-   - Values: Brazil, Chile, Mexico, Peru, South Africa
-   - Impact: Geographic segmentation
-   - Use Case: Multi-country analysis
-
-4. **Time Filter (Month/Year)**
-   - Based on DimCalendar
-   - Impact: Trend analysis over time
-   - Use Case: Historical trend tracking
+- **Current Status** - See only active/inactive/terminated employees
+- **Department** - Filter by specific department
+- **Country** - Filter by specific country
+- **Date** - See trends over specific time periods
 
 ---
 
-## 📈 Analysis Insights Discovered
+## Key Decisions Made
 
-### **Workforce Stability**
-- **Finding:** Attrition rate of 0.3% is exceptionally low
-- **Implication:** Strong employee retention, low turnover costs
-- **Recommendation:** Identify and share retention best practices
+### Decision 1: Anonymize Data
+Replaced employee names with IDs to protect privacy and maintain confidentiality.
 
-### **Geographic Distribution**
-- **Finding:** Peru has largest employee concentration (796 employees)
-- **Implication:** Significant Latin American operations
-- **Recommendation:** Monitor location-specific HR practices
+### Decision 2: Separate Tables
+Kept employee info, salary, and leave in separate tables to keep data organized and flexible for future changes.
 
-### **Leave Patterns**
-- **Finding:** RAU department shows highest average leave (22 days)
-- **Implication:** Potential workload or burnout indicator
-- **Recommendation:** Review workload distribution in RAU
+### Decision 3: Use DAX for Calculations
+Used DAX formulas instead of Excel to make calculations automatic and professional.
 
-### **Salary Efficiency**
-- **Finding:** CPE averaged 10,940 across workforce
-- **Implication:** Stable, predictable workforce costs
-- **Recommendation:** Use as baseline for budget forecasting
-
-### **Department Insights**
-- **Finding:** "Other" category dominates (1,169 employees)
-- **Implication:** Need for better department classification
-- **Recommendation:** Standardize department naming convention
+### Decision 4: Create Multiple Pages
+Created different dashboard pages so different people (executives, HR, finance, analysts) can see what they need.
 
 ---
 
-## 🛠️ Tools & Technologies
+## Findings From The Data
 
-| Tool | Purpose | Version/Skill Level |
-|------|---------|-------------------|
-| **Power BI Desktop** | Dashboard development | Intermediate-Advanced |
-| **DAX** | Complex calculations | Intermediate |
-| **Power Query** | Data transformation | Intermediate |
-| **Excel** | Data preparation | Intermediate |
-| **SQL-like Relationships** | Data modeling | Intermediate |
+**Finding 1: Very Low Attrition**
+- Only 0.3% of employees left
+- Indicates good employee satisfaction and retention
 
----
+**Finding 2: Multi-Country Operation**
+- 5 countries with Peru having the most employees (796)
+- Shows it's a large, global company
 
-## 📊 Data Quality & Validation
+**Finding 3: Leave Patterns Vary**
+- Different departments take different amounts of leave
+- Indicates different workload levels across teams
 
-**Validation Steps Performed:**
-- ✅ Record count verification (1,946 active employees)
-- ✅ Relationship integrity checks (no orphaned records)
-- ✅ Calculated field validation (manual spot checks)
-- ✅ Filter impact testing (each filter impacts correctly)
-- ✅ Edge case handling (null values, blanks)
-
-**Data Quality Score: 95%+**
+**Finding 4: Cost Efficiency**
+- CPE of 10,940 is stable
+- Helps with budgeting and financial planning
 
 ---
 
-## 🔄 Iterative Refinement Process
+## Skills Used
 
-**Version History:**
-
-| Version | Date | Changes |
-|---------|------|---------|
-| v1.0 | [Date] | Initial dashboard release |
-| v1.1 | [Date] | Added attrition trend analysis |
-| v1.2 | [Date] | Enhanced salary analysis |
-| v1.3 | [Date] | Added leave management page |
-| v1.4 | [Date] | Performance optimization |
-| v1.5 | Current | Final production version |
-
----
-
-## 🚀 Best Practices Applied
-
-### **Data Modeling**
-- ✅ Proper normalization (3NF)
-- ✅ Surrogate keys (EmployeeID)
-- ✅ Conformed dimensions
-- ✅ Fact-dimension separation
-
-### **DAX Development**
-- ✅ Meaningful measure names
-- ✅ Calculation groups where applicable
-- ✅ Performance optimization
-- ✅ Error handling for edge cases
-
-### **Visualization**
-- ✅ Color accessibility standards
-- ✅ Consistent formatting
-- ✅ Mobile-friendly design
-- ✅ Tooltip documentation
-
-### **Documentation**
-- ✅ Data dictionary maintained
-- ✅ Calculation formulas documented
-- ✅ Filter behavior explained
-- ✅ User guide provided
-
----
-
-## 📉 Limitations & Caveats
-
-1. **Data Anonymization:** Employee-level details obscured for confidentiality
-2. **Time Coverage:** [Specify your actual date range]
-3. **External Factors:** Dashboard doesn't account for industry-wide trends
-4. **Granularity:** Some dimensions simplified for performance
-
----
-
-## 🎓 Learning Outcomes
-
-**Technical Skills Developed:**
-- Advanced Power BI features (DAX, relationships, visualizations)
-- Data modeling best practices
-- Business intelligence methodology
-- Performance optimization techniques
-
-**Business Skills Developed:**
-- HR metrics understanding
-- KPI identification process
-- Stakeholder communication
-- Data-driven storytelling
-
----
-
-## 🚀 Future Enhancement Roadmap
-
-**Phase 2 Enhancements:**
-- [ ] Predictive analytics for attrition forecasting
-- [ ] Real-time data refresh integration
-- [ ] Advanced segmentation analysis
-- [ ] Mobile dashboard version
-- [ ] Performance benchmark comparison
-
-**Phase 3 Enhancements:**
-- [ ] Machine learning models
-- [ ] Scenario planning features
-- [ ] Automated alerting system
-- [ ] Self-service analytics for HR team
-
----
-
-## 📞 Questions & Support
-
-For questions about the methodology or analysis approach:
-- Review the Data Dictionary for column definitions
-- Check the dashboard documentation on each page
-- Explore the raw data to validate findings
-- Reach out with specific questions
-
----
-
-*Last Updated: June 2026*  
-*Analysis Version: 1.0 (Production-Ready)*
-
+| Skill | What I Did |
+|-------|-----------|
+| **Power BI** | Built the dashboard and created visualizations |
+| **Excel** | Prepared and cleaned the raw data |
+| **DAX** | Wrote formulas to calculate metrics and KPIs |
+| **Data Modeling** | Connected tables and created relationships |
+| **Database Design** | Used star schema best practices |

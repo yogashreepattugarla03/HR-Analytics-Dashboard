@@ -10,13 +10,13 @@ This document outlines the approach, methodology, and analytical framework used 
 1. **Transform Raw Data** → Convert employee data into actionable insights
 2. **Identify Key Metrics** → Define and calculate critical HR KPIs
 3. **Enable Data-Driven Decisions** → Support HR strategy with analytics
-4. **Provide Self-Service Analytics** → Create interactive dashboards for stakeholders
+4. **Provide Self-Service Analytics** → Create interactive dashboards
 
 ---
 
 ## 🔄 Development Process
 
-### **Phase 1: Data Understanding & Preparation**
+### **step 1: Data Understanding & Preparation**
 
 **Steps Taken:**
 - Analyzed source data structure in Excel
@@ -39,7 +39,7 @@ This document outlines the approach, methodology, and analytical framework used 
 
 ---
 
-### **Phase 2: Data Modeling**
+### **step 2: Data Modeling**
 
 **Architecture Decision: Star Schema**
 
@@ -75,7 +75,7 @@ DIMENSION TABLES (Context):
 
 ---
 
-### **Phase 3: KPI Identification**
+### **step 3: KPI Identification**
 
 **HR Metrics Selected & Rationale:**
 
@@ -98,7 +98,7 @@ DIMENSION TABLES (Context):
 
 ---
 
-### **Phase 4: DAX Calculations**
+### **step 4: DAX Calculations**
 
 **Measures Created:**
 
@@ -137,45 +137,7 @@ YoY Growth = [Current Year] / [Previous Year]
 
 ---
 
-### **Phase 5: Visualization Design**
-
-**Dashboard Architecture:**
-
-#### **Page 1: Executive Summary**
-- **Cards:** Active Employees, Male/Female counts, Attrition Rate, CPE
-- **Purpose:** At-a-glance KPI overview
-- **Audience:** C-level, executives
-- **Update Frequency:** Real-time
-
-#### **Page 2: Employee Analysis**
-- **Bar Chart:** Employee count by department
-- **Pie Chart:** Distribution across departments
-- **Table:** Department details with headcount
-- **Purpose:** Organizational structure clarity
-- **Filters:** By Current Status
-
-#### **Page 3: Leave Management**
-- **Bar Chart:** Average leave by department
-- **Bar Chart:** Total leaves by department
-- **Purpose:** Leave utilization analysis
-- **Insight:** Which departments use more leave?
-
-#### **Page 4: Salary Analysis**
-- **Bar Chart:** Sum of salary by department
-- **Stacked Chart:** Compensation breakdown
-- **Purpose:** Compensation analysis
-- **Filters:** By country, department
-
-#### **Page 5: Attrition Analysis**
-- **Line Chart:** Attrition rate trend (Month-Year)
-- **Pie Chart:** Exit category distribution
-- **Purpose:** Workforce stability tracking
-- **Insight:** Attrition trends over time
-
-#### **Page 6: Cross-Sheet Analysis**
-- **Comprehensive tables:** Multi-table drill-down
-- **Purpose:** Detailed analysis capability
-- **Audience:** Analysts, HR teams
+### **step 5: Visualization Design**
 
 **Visualization Selection Rationale:**
 
@@ -190,7 +152,7 @@ YoY Growth = [Current Year] / [Previous Year]
 
 ---
 
-### **Phase 6: Interactivity & Filtering**
+### **step 6: Interactivity & Filtering**
 
 **Filters Implemented:**
 
@@ -245,7 +207,7 @@ YoY Growth = [Current Year] / [Previous Year]
 
 ---
 
-## 🛠️ Tools & Technologies
+## Tools & Technologies used
 
 | Tool | Purpose | Version/Skill Level |
 |------|---------|-------------------|
@@ -254,86 +216,5 @@ YoY Growth = [Current Year] / [Previous Year]
 | **Power Query** | Data transformation | Intermediate |
 | **Excel** | Data preparation | Intermediate |
 | **SQL-like Relationships** | Data modeling | Intermediate |
-
----
-
-## 📊 Data Quality & Validation
-
-**Validation Steps Performed:**
-- ✅ Record count verification (1,946 active employees)
-- ✅ Relationship integrity checks (no orphaned records)
-- ✅ Calculated field validation (manual spot checks)
-- ✅ Filter impact testing (each filter impacts correctly)
-- ✅ Edge case handling (null values, blanks)
-
-**Data Quality Score: 95%+**
-
----
-
-## 🔄 Iterative Refinement Process
-
-**Version History:**
-
-| Version | Date | Changes |
-|---------|------|---------|
-| v1.0 | [Date] | Initial dashboard release |
-| v1.1 | [Date] | Added attrition trend analysis |
-| v1.2 | [Date] | Enhanced salary analysis |
-| v1.3 | [Date] | Added leave management page |
-| v1.4 | [Date] | Performance optimization |
-| v1.5 | Current | Final production version |
-
----
-
-## 🚀 Best Practices Applied
-
-### **Data Modeling**
-- ✅ Proper normalization (3NF)
-- ✅ Surrogate keys (EmployeeID)
-- ✅ Conformed dimensions
-- ✅ Fact-dimension separation
-
-### **DAX Development**
-- ✅ Meaningful measure names
-- ✅ Calculation groups where applicable
-- ✅ Performance optimization
-- ✅ Error handling for edge cases
-
-### **Visualization**
-- ✅ Color accessibility standards
-- ✅ Consistent formatting
-- ✅ Mobile-friendly design
-- ✅ Tooltip documentation
-
-### **Documentation**
-- ✅ Data dictionary maintained
-- ✅ Calculation formulas documented
-- ✅ Filter behavior explained
-- ✅ User guide provided
-
----
-
-## 📉 Limitations & Caveats
-
-1. **Data Anonymization:** Employee-level details obscured for confidentiality
-2. **Time Coverage:** [Specify your actual date range]
-3. **External Factors:** Dashboard doesn't account for industry-wide trends
-4. **Granularity:** Some dimensions simplified for performance
-
----
-
-## 🎓 Learning Outcomes
-
-**Technical Skills Developed:**
-- Advanced Power BI features (DAX, relationships, visualizations)
-- Data modeling best practices
-- Business intelligence methodology
-- Performance optimization techniques
-
-**Business Skills Developed:**
-- HR metrics understanding
-- KPI identification process
-- Stakeholder communication
-- Data-driven storytelling
 
 ---

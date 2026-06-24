@@ -8,7 +8,7 @@ A comprehensive **HR Analytics Dashboard** developed during my internship at SPR
 
 **Role:** Data Analyst Intern  
 **Organization:** SPR Consultech  
-**Duration:** [Internship Period]  
+**Duration:** 1 month [JUL'25-AUG'25]  
 **Tools:** Power BI, Excel, Data Modeling  
 **Objective:** Transform raw HR data into interactive dashboards for stakeholder insights
 
@@ -141,39 +141,22 @@ HR-Analytics-Dashboard/
 
 ---
 
-## 🚀 How to Access & Use
+## Files In This Project
 
-### **To View the Dashboard:**
-1. Download the `.pbix` file from the `dashboard/` folder
-2. Open in **Power BI Desktop** (free download from Microsoft)
-3. Interact with filters and slicers to explore data
-4. Explore different dashboard pages for various insights
-
-### **To Understand the Data:**
-1. Refer to `data/Data_Dictionary.md` for all column definitions
-2. Open `SPR-HR_data.xlsx` to see the raw data structure
-3. Review `Methodology.md` to understand my analysis approach
-
-### **To Replicate the Analysis:**
-1. Load data from `SPR-HR_data.xlsx` into Power BI
-2. Create tables: Employee Master, Salary, Leave, DimCalendar
-3. Establish relationships as shown in data model
-4. Build DAX measures for KPI calculations
-5. Design visualizations for each analysis dimension
+- **sample_data_analysis_spr.pbix** - The Power BI dashboard file (open in Power BI)
+- **SPR-HR_data.xlsx** - The raw data (Excel file)
+- **Data_Dictionary.md** - Explains what each column means
+- **Methodology.md** - How I built this project
+- **Screenshots** - Pictures of the dashboard
 
 ---
 
-## 🔐 Data Confidentiality
+## How To Use This Project
 
-**Important:** This repository uses **anonymized sample HR data** based on real company information. 
-
-- Employee names have been replaced with Employee IDs
-- All personally identifiable information (PII) has been removed
-- Actual salaries have been aggregated by department/role
-- Analysis retains all business value while maintaining confidentiality
-- Data structure and relationships mirror real enterprise HR systems
-
-This approach ensures compliance with data protection standards while demonstrating real analytical capabilities.
+1. **Want to see the dashboard?** → Open the `.pbix` file in Power BI
+2. **Want to see the data?** → Open the `.xlsx` file in Excel
+3. **Want to understand columns?** → Read `Data_Dictionary.md`
+4. **Want to know how I built it?** → Read `Methodology.md`
 
 ---
 
